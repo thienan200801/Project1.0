@@ -67,9 +67,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(910, 124);
+            this.panel1.Size = new System.Drawing.Size(1924, 165);
             this.panel1.TabIndex = 0;
             // 
             // btclear
@@ -81,10 +80,9 @@
             this.btclear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btclear.ForeColor = System.Drawing.Color.White;
             this.btclear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btclear.Location = new System.Drawing.Point(733, 83);
-            this.btclear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btclear.Location = new System.Drawing.Point(1474, 95);
             this.btclear.Name = "btclear";
-            this.btclear.Size = new System.Drawing.Size(58, 27);
+            this.btclear.Size = new System.Drawing.Size(66, 36);
             this.btclear.TabIndex = 11;
             this.btclear.Text = "Clear";
             this.btclear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -100,10 +98,9 @@
             this.btsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btsave.ForeColor = System.Drawing.Color.White;
             this.btsave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btsave.Location = new System.Drawing.Point(797, 83);
-            this.btsave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btsave.Location = new System.Drawing.Point(1546, 95);
             this.btsave.Name = "btsave";
-            this.btsave.Size = new System.Drawing.Size(58, 27);
+            this.btsave.Size = new System.Drawing.Size(66, 36);
             this.btsave.TabIndex = 10;
             this.btsave.Text = "Save";
             this.btsave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -114,10 +111,9 @@
             // 
             this.colorPicker.Cursor = System.Windows.Forms.Cursors.Cross;
             this.colorPicker.Image = ((System.Drawing.Image)(resources.GetObject("colorPicker.Image")));
-            this.colorPicker.Location = new System.Drawing.Point(22, 2);
-            this.colorPicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.colorPicker.Location = new System.Drawing.Point(288, 15);
             this.colorPicker.Name = "colorPicker";
-            this.colorPicker.Size = new System.Drawing.Size(316, 88);
+            this.colorPicker.Size = new System.Drawing.Size(502, 134);
             this.colorPicker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.colorPicker.TabIndex = 9;
             this.colorPicker.TabStop = false;
@@ -133,10 +129,9 @@
             this.btnLine.ForeColor = System.Drawing.Color.White;
             this.btnLine.Image = ((System.Drawing.Image)(resources.GetObject("btnLine.Image")));
             this.btnLine.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLine.Location = new System.Drawing.Point(797, 20);
-            this.btnLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLine.Location = new System.Drawing.Point(1357, 53);
             this.btnLine.Name = "btnLine";
-            this.btnLine.Size = new System.Drawing.Size(58, 48);
+            this.btnLine.Size = new System.Drawing.Size(66, 64);
             this.btnLine.TabIndex = 7;
             this.btnLine.Text = "Line";
             this.btnLine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -153,10 +148,9 @@
             this.btnRectangle.ForeColor = System.Drawing.Color.White;
             this.btnRectangle.Image = ((System.Drawing.Image)(resources.GetObject("btnRectangle.Image")));
             this.btnRectangle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRectangle.Location = new System.Drawing.Point(734, 20);
-            this.btnRectangle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRectangle.Location = new System.Drawing.Point(1285, 53);
             this.btnRectangle.Name = "btnRectangle";
-            this.btnRectangle.Size = new System.Drawing.Size(58, 48);
+            this.btnRectangle.Size = new System.Drawing.Size(66, 64);
             this.btnRectangle.TabIndex = 6;
             this.btnRectangle.Text = "Rec";
             this.btnRectangle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -173,10 +167,9 @@
             this.btnEllipse.ForeColor = System.Drawing.Color.White;
             this.btnEllipse.Image = ((System.Drawing.Image)(resources.GetObject("btnEllipse.Image")));
             this.btnEllipse.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEllipse.Location = new System.Drawing.Point(671, 20);
-            this.btnEllipse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEllipse.Location = new System.Drawing.Point(1213, 53);
             this.btnEllipse.Name = "btnEllipse";
-            this.btnEllipse.Size = new System.Drawing.Size(58, 48);
+            this.btnEllipse.Size = new System.Drawing.Size(66, 64);
             this.btnEllipse.TabIndex = 5;
             this.btnEllipse.Text = "Ellipse";
             this.btnEllipse.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -193,10 +186,9 @@
             this.btnEraser.ForeColor = System.Drawing.Color.White;
             this.btnEraser.Image = ((System.Drawing.Image)(resources.GetObject("btnEraser.Image")));
             this.btnEraser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEraser.Location = new System.Drawing.Point(608, 20);
-            this.btnEraser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEraser.Location = new System.Drawing.Point(1141, 53);
             this.btnEraser.Name = "btnEraser";
-            this.btnEraser.Size = new System.Drawing.Size(58, 48);
+            this.btnEraser.Size = new System.Drawing.Size(66, 64);
             this.btnEraser.TabIndex = 4;
             this.btnEraser.Text = "Eraser";
             this.btnEraser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -213,10 +205,9 @@
             this.btnPencil.ForeColor = System.Drawing.Color.White;
             this.btnPencil.Image = ((System.Drawing.Image)(resources.GetObject("btnPencil.Image")));
             this.btnPencil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPencil.Location = new System.Drawing.Point(545, 20);
-            this.btnPencil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPencil.Location = new System.Drawing.Point(1069, 53);
             this.btnPencil.Name = "btnPencil";
-            this.btnPencil.Size = new System.Drawing.Size(58, 48);
+            this.btnPencil.Size = new System.Drawing.Size(66, 64);
             this.btnPencil.TabIndex = 3;
             this.btnPencil.Text = "Pencil";
             this.btnPencil.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -233,10 +224,9 @@
             this.btnFill.ForeColor = System.Drawing.Color.White;
             this.btnFill.Image = ((System.Drawing.Image)(resources.GetObject("btnFill.Image")));
             this.btnFill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFill.Location = new System.Drawing.Point(482, 20);
-            this.btnFill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFill.Location = new System.Drawing.Point(997, 53);
             this.btnFill.Name = "btnFill";
-            this.btnFill.Size = new System.Drawing.Size(58, 48);
+            this.btnFill.Size = new System.Drawing.Size(66, 64);
             this.btnFill.TabIndex = 2;
             this.btnFill.Text = "Fill";
             this.btnFill.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -253,10 +243,9 @@
             this.btnColor.ForeColor = System.Drawing.Color.White;
             this.btnColor.Image = ((System.Drawing.Image)(resources.GetObject("btnColor.Image")));
             this.btnColor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnColor.Location = new System.Drawing.Point(419, 20);
-            this.btnColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnColor.Location = new System.Drawing.Point(925, 53);
             this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(58, 48);
+            this.btnColor.Size = new System.Drawing.Size(66, 64);
             this.btnColor.TabIndex = 1;
             this.btnColor.Text = "Color";
             this.btnColor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -266,38 +255,34 @@
             // pickColor
             // 
             this.pickColor.BackColor = System.Drawing.Color.White;
-            this.pickColor.Location = new System.Drawing.Point(347, 29);
-            this.pickColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pickColor.Location = new System.Drawing.Point(823, 65);
             this.pickColor.Name = "pickColor";
-            this.pickColor.Size = new System.Drawing.Size(34, 28);
+            this.pickColor.Size = new System.Drawing.Size(39, 37);
             this.pickColor.TabIndex = 0;
             this.pickColor.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(392, 10);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Location = new System.Drawing.Point(894, 39);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(487, 69);
+            this.panel3.Size = new System.Drawing.Size(557, 92);
             this.panel3.TabIndex = 8;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 468);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(0, 1028);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(910, 20);
+            this.panel2.Size = new System.Drawing.Size(1924, 27);
             this.panel2.TabIndex = 1;
             // 
             // pic
             // 
-            this.pic.Location = new System.Drawing.Point(0, 124);
-            this.pic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pic.Location = new System.Drawing.Point(0, 161);
             this.pic.Name = "pic";
-            this.pic.Size = new System.Drawing.Size(910, 550);
+            this.pic.Size = new System.Drawing.Size(1921, 901);
             this.pic.TabIndex = 2;
             this.pic.TabStop = false;
             this.pic.Paint += new System.Windows.Forms.PaintEventHandler(this.pic_Paint);
@@ -308,15 +293,14 @@
             // 
             // Ve
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 488);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pic);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Ve";
-            this.Text = "Form1";
+            this.Text = "Drawing Space";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.colorPicker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
