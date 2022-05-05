@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Drawing.Imaging;
 
 namespace Project1._0
@@ -7,12 +8,13 @@ namespace Project1._0
         public Ve()
         {
             InitializeComponent();
-            this.Width = 900;
-            this.Height = 700;
+            this.Width = 1920;
+            this.Height = 1080;
             bm = new Bitmap(pic.Width, pic.Height);
             g = Graphics.FromImage(bm);
             g.Clear(Color.White);
             pic.Image = bm;
+            boxsize.Text = "1";
         }
 
         Bitmap bm;
@@ -21,10 +23,14 @@ namespace Project1._0
         Point Px, Py;
         Pen P = new Pen(Color.Black, 1);
         int index;
-        Pen E = new Pen(Color.White, 10);
+        Pen E = new Pen(Color.White, 1);
         int x, y, sX, sY, cX, cY;
         ColorDialog cd = new ColorDialog();
         Color new_color;
+        int Size = 1;
+        int SizeFont = 8;
+        Font ff = new Font("Arial", 1);
+        SolidBrush drawBrush = new SolidBrush(Color.Black);
 
         private void btnLine_Click(object sender, EventArgs e)
         {
@@ -67,6 +73,11 @@ namespace Project1._0
                 {
                     g.DrawLine(P, cX, cY, x, y);
                 }
+
+                if (index == 8)
+                {
+                    g.DrawString(contentText.Text, ff, drawBrush, cX, cY);
+                }
             }    
         }
 
@@ -81,6 +92,7 @@ namespace Project1._0
             pickColor.BackColor = ((Bitmap)colorPicker.Image).GetPixel(point.X, point.Y);
             new_color = pickColor.BackColor;
             P.Color = pickColor.BackColor;
+            drawBrush.Color = pickColor.BackColor;
         }
 
         private void btnFill_Click(object sender, EventArgs e)
@@ -94,6 +106,7 @@ namespace Project1._0
             new_color = cd.Color;
             pickColor.BackColor = cd.Color;
             P.Color = cd.Color;
+            drawBrush.Color = pickColor.BackColor;
         }
 
         private void pic_MouseClick(object sender, MouseEventArgs e)
@@ -121,6 +134,55 @@ namespace Project1._0
             g.Clear(Color.White);
             pic.Image = bm;
 
+        }
+
+        private void boxsize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Size = Int32.Parse(boxsize.Text);
+            P.Width = Size;
+        }
+
+        private void inc_Click(object sender, EventArgs e)
+        {
+            Size++;
+            P.Width = Size;
+            E.Width = Size;
+            boxsize.Text = Size.ToString();
+        }
+
+        private void dec_Click(object sender, EventArgs e)
+        {
+            if (Size - 1 >= 1)
+                Size--;
+            P.Width = Size;
+            E.Width = Size;
+            boxsize.Text = Size.ToString();
+        }
+
+        private void btnText_Click(object sender, EventArgs e)
+        {
+            index = 8;
+        }
+
+        private void Ve_Load(object sender, EventArgs e)
+        {
+            foreach (FontFamily font in FontFamily.Families)
+            {
+                listFont.Items.Add(font.Name.ToString());
+            }
+            listFont.SelectedItem = "Arial";
+            sizebox.SelectedItem = "8";
+        }
+
+        private void listFont_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ff = new Font(listFont.SelectedItem.ToString(), SizeFont);  
+        }
+
+        private void sizebox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SizeFont = Int32.Parse(sizebox.SelectedItem.ToString());
+            ff = new Font(listFont.SelectedItem.ToString(), SizeFont);
         }
 
         // Pic
@@ -181,6 +243,11 @@ namespace Project1._0
             if (index == 5)
             {
                 g.DrawLine(P, cX, cY, x, y);
+            }
+
+            if (index == 8)
+            {
+                g.DrawString(contentText.Text, ff, drawBrush, cX, cY);
             }
         }
 
