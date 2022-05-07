@@ -1,11 +1,22 @@
 using System.ComponentModel;
 using System.Drawing.Imaging;
+using System.Net.Sockets;
+using System.Net;
+using System.Threading;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Project1._0
 {
     public partial class Ve : Form
     {
-        public Ve()
+        public Ve(string us, TcpClient cl, NetworkStream ns, string c)
         {
             InitializeComponent();
             this.Width = 1920;
@@ -15,8 +26,16 @@ namespace Project1._0
             g.Clear(Color.White);
             pic.Image = bm;
             boxsize.Text = "1";
+            username = us;
+            clientSocket = cl;
+            serverStream = ns;
+            code = c;
         }
 
+        string username;
+        TcpClient clientSocket;
+        NetworkStream serverStream;
+        string code;
         Bitmap bm;
         Graphics g;
         bool paint = false;
@@ -132,7 +151,7 @@ namespace Project1._0
         private void btclear_Click(object sender, EventArgs e)
         {
             g.Clear(Color.White);
-            pic.Image = bm;
+            //pic.Image = bm;
 
         }
 
@@ -172,6 +191,10 @@ namespace Project1._0
             }
             listFont.SelectedItem = "Arial";
             sizebox.SelectedItem = "8";
+            Thread threadsend = new Thread(sendMessage);
+            Thread threadget = new Thread(getMessage);
+            threadsend.Start();
+            threadget.Start();
         }
 
         private void listFont_SelectedIndexChanged(object sender, EventArgs e)
@@ -286,6 +309,41 @@ namespace Project1._0
                     validate(bm, picel, pt.X+1, pt.Y, o_color, n_color);
                     validate(bm, picel, pt.X, pt.Y+1, o_color, n_color);
                 }
+            }    
+        }
+
+        private void getMessage()
+        {
+            while (true)
+            {
+                serverStream = clientSocket.GetStream();
+                byte[] inStream = new byte[10025];
+                serverStream.Read(inStream, 0, inStream.Length);
+                Bitmap bmp;
+                using (var ms = new MemoryStream(inStream))
+                {
+                    bmp = new Bitmap(ms);
+                }
+                g = Graphics.FromImage(bmp);
+            }
+        }
+
+        public static byte[] ImageToByte(Image img)
+        {
+            ImageConverter converter = new ImageConverter();
+            return (byte[])converter.ConvertTo(img, typeof(byte[]));
+        }
+
+        private void sendMessage()
+        {
+            while (true)
+            {
+                Thread.Sleep(500);
+                Byte[] outStream = null;
+                Bitmap btm = bm.Clone(new Rectangle(0, 0, pic.Width, pic.Height), bm.PixelFormat);
+                outStream = ImageToByte(btm);
+                serverStream.Write(outStream, 0, outStream.Length);
+                serverStream.Flush();
             }    
         }
     }

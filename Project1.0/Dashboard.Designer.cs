@@ -29,49 +29,52 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_exit = new System.Windows.Forms.Button();
+            this.btn_join = new System.Windows.Forms.Button();
+            this.btn_create = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button3
+            // btn_exit
             // 
-            this.button3.BackColor = System.Drawing.Color.MistyRose;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.IndianRed;
-            this.button3.Location = new System.Drawing.Point(111, 172);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(159, 28);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "EXIT";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btn_exit.BackColor = System.Drawing.Color.MistyRose;
+            this.btn_exit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_exit.ForeColor = System.Drawing.Color.IndianRed;
+            this.btn_exit.Location = new System.Drawing.Point(111, 169);
+            this.btn_exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(159, 28);
+            this.btn_exit.TabIndex = 2;
+            this.btn_exit.Text = "EXIT";
+            this.btn_exit.UseVisualStyleBackColor = false;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
-            // button1
+            // btn_join
             // 
-            this.button1.BackColor = System.Drawing.Color.MistyRose;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.IndianRed;
-            this.button1.Location = new System.Drawing.Point(111, 116);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 28);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "JOIN";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_join.BackColor = System.Drawing.Color.MistyRose;
+            this.btn_join.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_join.ForeColor = System.Drawing.Color.IndianRed;
+            this.btn_join.Location = new System.Drawing.Point(111, 116);
+            this.btn_join.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_join.Name = "btn_join";
+            this.btn_join.Size = new System.Drawing.Size(159, 28);
+            this.btn_join.TabIndex = 3;
+            this.btn_join.Text = "JOIN";
+            this.btn_join.UseVisualStyleBackColor = false;
+            this.btn_join.Click += new System.EventHandler(this.btn_join_Click);
             // 
-            // button2
+            // btn_create
             // 
-            this.button2.BackColor = System.Drawing.Color.MistyRose;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.IndianRed;
-            this.button2.Location = new System.Drawing.Point(111, 61);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 28);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "CREATE";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_create.BackColor = System.Drawing.Color.MistyRose;
+            this.btn_create.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_create.ForeColor = System.Drawing.Color.IndianRed;
+            this.btn_create.Location = new System.Drawing.Point(111, 61);
+            this.btn_create.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_create.Name = "btn_create";
+            this.btn_create.Size = new System.Drawing.Size(159, 28);
+            this.btn_create.TabIndex = 4;
+            this.btn_create.Text = "CREATE";
+            this.btn_create.UseVisualStyleBackColor = false;
+            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
             // 
             // Dashboard
             // 
@@ -80,20 +83,20 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(389, 502);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btn_create);
+            this.Controls.Add(this.btn_join);
+            this.Controls.Add(this.btn_exit);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Dashboard";
-            this.Text = "Dashboard";
+            this.Text = "Scribble Together";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Button button3;
-        private Button button1;
-        private Button button2;
+        private Button btn_exit;
+        private Button btn_join;
+        private Button btn_create;
     }
 }

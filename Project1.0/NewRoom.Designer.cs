@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewRoom));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.box_code = new System.Windows.Forms.TextBox();
+            this.btn_back_nroom = new System.Windows.Forms.Button();
+            this.btn_create = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -42,9 +42,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Gabriola", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(85, 108);
+            this.label1.Location = new System.Drawing.Point(74, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(290, 110);
+            this.label1.Size = new System.Drawing.Size(235, 88);
             this.label1.TabIndex = 0;
             this.label1.Text = "NEW ROOM";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -55,58 +55,64 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Gabriola", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(56, 218);
+            this.label2.Location = new System.Drawing.Point(49, 164);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 42);
+            this.label2.Size = new System.Drawing.Size(111, 35);
             this.label2.TabIndex = 1;
             this.label2.Text = "Input your code:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // box_code
             // 
-            this.textBox1.Location = new System.Drawing.Point(185, 226);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(226, 27);
-            this.textBox1.TabIndex = 2;
+            this.box_code.Location = new System.Drawing.Point(162, 170);
+            this.box_code.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.box_code.Name = "box_code";
+            this.box_code.Size = new System.Drawing.Size(198, 23);
+            this.box_code.TabIndex = 2;
             // 
-            // button1
+            // btn_back_nroom
             // 
-            this.button1.Font = new System.Drawing.Font("Sylfaen", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(56, 271);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 34);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_back_nroom.Font = new System.Drawing.Font("Sylfaen", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_back_nroom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_back_nroom.Location = new System.Drawing.Point(49, 203);
+            this.btn_back_nroom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_back_nroom.Name = "btn_back_nroom";
+            this.btn_back_nroom.Size = new System.Drawing.Size(156, 26);
+            this.btn_back_nroom.TabIndex = 3;
+            this.btn_back_nroom.Text = "Back";
+            this.btn_back_nroom.UseVisualStyleBackColor = true;
+            this.btn_back_nroom.Click += new System.EventHandler(this.btn_back_nroom_Click);
             // 
-            // button2
+            // btn_create
             // 
-            this.button2.BackColor = System.Drawing.Color.LightCoral;
-            this.button2.Font = new System.Drawing.Font("Sylfaen", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(234, 271);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(177, 34);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Create";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_create.BackColor = System.Drawing.Color.LightCoral;
+            this.btn_create.Font = new System.Drawing.Font("Sylfaen", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_create.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_create.Location = new System.Drawing.Point(205, 203);
+            this.btn_create.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_create.Name = "btn_create";
+            this.btn_create.Size = new System.Drawing.Size(155, 26);
+            this.btn_create.TabIndex = 4;
+            this.btn_create.Text = "Create";
+            this.btn_create.UseVisualStyleBackColor = false;
+            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
             // 
             // NewRoom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(447, 578);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(391, 434);
+            this.Controls.Add(this.btn_create);
+            this.Controls.Add(this.btn_back_nroom);
+            this.Controls.Add(this.box_code);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "NewRoom";
-            this.Text = "aa";
+            this.Text = "Scribble Together";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,8 +122,8 @@
 
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private Button button1;
-        private Button button2;
+        private TextBox box_code;
+        private Button btn_back_nroom;
+        private Button btn_create;
     }
 }
