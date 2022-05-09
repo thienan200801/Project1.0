@@ -17,16 +17,15 @@ namespace Project1._0
     {
         bool check = false;
         bool checkthread = false;
-        bool checkw = true;
+        bool checkw;
         TcpClient clientSocket;
-        NetworkStream serverStream;
         string readData;
 
         public SignUp(TcpClient cl, NetworkStream ns)
         {
             InitializeComponent();
             clientSocket = cl;
-            serverStream = ns;
+            connectServer.serverStream = ns;
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -37,12 +36,13 @@ namespace Project1._0
 
         private void btn_sigh_Click(object sender, EventArgs e)
         {
+            checkw = true;
             if (box_username.Text != "" && box_pass.Text != "")
             {
                 // Gửi thông tin login đến server
                 byte[] outStream = Encoding.UTF8.GetBytes("2\n" + box_username.Text + "\n" + box_pass.Text + "\n" + "$");
-                serverStream.Write(outStream, 0, outStream.Length);
-                serverStream.Flush();
+                connectServer.serverStream.Write(outStream, 0, outStream.Length);
+                connectServer.serverStream.Flush();
 
                 // Mở thread để nhận thông tin từ server
                 CheckForIllegalCrossThreadCalls = false;
@@ -52,14 +52,16 @@ namespace Project1._0
                     ctThread.Start();
                 }
                 check = true;
-                
-                while(checkw)
-                if (checkthread)
+
+                while (checkw)
                 {
-#pragma warning disable SYSLIB0006 // Type or member is obsolete
-                    ctThread.Abort();
-#pragma warning restore SYSLIB0006 // Type or member is obsolete
+                    if (checkthread)
+                    {
+                        #pragma warning disable SYSLIB0006 // Type or member is obsolete
+                        ctThread.Interrupt();
+                        #pragma warning restore SYSLIB0006 // Type or member is obsolete
                         break;
+                    }
                 }
             }
         }
@@ -68,14 +70,13 @@ namespace Project1._0
             {
                 while (true)
                 {
-                    serverStream = clientSocket.GetStream();
                     byte[] inStream = new byte[10025];
-                    serverStream.Read(inStream, 0, inStream.Length);
-                    string returndata = Encoding.UTF8.GetString(inStream);
+                    connectServer.serverStream.Read(inStream, 0, inStream.Length);
+                    string returndata = Encoding.UTF8.GetString(inStream).Replace("\0", string.Empty);
                     readData = "" + returndata;
                     if(readData == "False")
                     {
-                        MessageBox.Show("Tai khoang da ton tai");
+                        MessageBox.Show("Tai khoan da ton tai");
                         checkw = false;
                     }
                     if(readData == "True")

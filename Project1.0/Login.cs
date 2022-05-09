@@ -16,10 +16,9 @@ namespace Project1._0
     public partial class Login : Form
     {
         TcpClient clientSocket = new TcpClient();
-        NetworkStream serverStream = default(NetworkStream);
         string readData = null;
         bool check = false;
-        bool checkw = true;
+        bool checkw;
         public Login()
         {
             InitializeComponent();
@@ -30,19 +29,13 @@ namespace Project1._0
 
         private void btn_login_Click(object sender, EventArgs e)
         {
+            checkw = true;
             if (box_username.Text != "" && box_pass.Text != "")
             {
-                // Kết nối đến server
-                if (check == false)
-                {
-                    clientSocket.Connect(IPAddress.Parse("127.0.0.1"), 8080);
-                    serverStream = clientSocket.GetStream();
-                }
-
                 // Gửi thông tin login đến server
                 byte[] outStream = Encoding.UTF8.GetBytes("1\n" + box_username.Text + "\n" + box_pass.Text + "\n" + "$");
-                serverStream.Write(outStream, 0, outStream.Length);
-                serverStream.Flush();
+                connectServer.serverStream.Write(outStream, 0, outStream.Length);
+                connectServer.serverStream.Flush();
 
                 // Mở thread để nhận thông tin từ server
                 CheckForIllegalCrossThreadCalls = false;
@@ -53,18 +46,20 @@ namespace Project1._0
                 }
                 check = true;
 
-                while(checkw)
-                if (refromServer)
+                while (checkw)
                 {
-                    dashboard.username = box_username.Text;
-                    dashboard.clientSocket = clientSocket;
-                    dashboard.serverStream = serverStream;
-                    dashboard.Show();
-                    this.Hide();
-#pragma warning disable SYSLIB0006 // Type or member is obsolete
-                    ctThread.Abort();
-#pragma warning restore SYSLIB0006 // Type or member is obsolete
+                    if (refromServer)
+                    {
+                        dashboard.username = box_username.Text;
+                        dashboard.clientSocket = clientSocket;
+                        dashboard.serverStream = connectServer.serverStream;
+                        dashboard.Show();
+                        this.Hide();
+                        #pragma warning disable SYSLIB0006 // Type or member is obsolete
+                        ctThread.Interrupt();
+                        #pragma warning restore SYSLIB0006 // Type or member is obsolete
                         break;
+                    }
                 }
             }
         }
@@ -73,10 +68,9 @@ namespace Project1._0
         {
             while (true)
             {
-                serverStream = clientSocket.GetStream();
                 byte[] inStream = new byte[10025];
-                serverStream.Read(inStream, 0, inStream.Length);
-                string returndata = Encoding.UTF8.GetString(inStream);
+                connectServer.serverStream.Read(inStream, 0, inStream.Length);
+                string returndata = Encoding.UTF8.GetString(inStream).Replace("\0", string.Empty);
                 readData = "" + returndata;
                 if (readData == "True")
                 {
@@ -93,7 +87,7 @@ namespace Project1._0
         private void btn_sigh_Click(object sender, EventArgs e)
         {                   
             this.Hide();
-            SignUp signUp = new SignUp(clientSocket, serverStream);
+            SignUp signUp = new SignUp(clientSocket, connectServer.serverStream);
             signUp.Show();
         }
     }
